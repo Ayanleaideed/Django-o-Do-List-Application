@@ -1,0 +1,18 @@
+# Virtual Environment
+.venv/
+
+# IDE-specific files (e.g., VSCode)
+.vscode/
+
+# Database (SQLite, PostgreSQL, etc.) files
+db.sqlite3
+
+# Compiled Python files
+__pycache__/
+
+# Logs
+*.log
+
+# Secret keys and sensitive information (customize this)
+secret_key.txt
+settings.py

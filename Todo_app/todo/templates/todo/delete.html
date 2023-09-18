@@ -1,0 +1,23 @@
+{% extends "todo/layout.html" %}
+{% block content %}
+<div class="container">
+  <h1 class="text-center mb-4">Delete Tasks</h1>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <form class="mb-4" action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="deleteTask" class="sr-only">Delete Task</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="deleteTask" name="deleteTask" placeholder="Enter a new task to Remove by name or ID">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

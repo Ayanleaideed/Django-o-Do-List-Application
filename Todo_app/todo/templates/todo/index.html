@@ -1,0 +1,90 @@
+{% extends "todo/layout.html" %}
+{% load static %}
+{% block content %}
+<!-- <script src="{% static 'index.js' %}"></script> -->
+<div style="font-family: cursive; font-size: x-large; font-weight: bolder;" class="container table-responsive">
+  <h1 class="text-center mb-4">Tasks</h1>
+  <table class="table table-striped table-bordered table-hover table-responsive-md table-active table-responsive-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr class="bg-primary text-white">
+        <td class="bg-dark text-white">{{ forloop.counter }}</td>
+        <td>{{ task }}</td>
+        <td>
+          <!-- Add a delete button here -->
+          <button class="btn btn-light delete-button" data-task="{{ task }}">Delete</button>
+          <button class="btn btn-light Done-button" data-task="{{ task }}">Done</button>
+          <pre></pre>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form class="mb-4" action="{% url 'index' %}" method="post">
+    <button type="Clear" name="clear" class="btn btn-primary">Clear</button>
+    {% csrf_token %}
+  </form>
+
+  <!-- Hidden form for task deletion -->
+  <form id="deleteTaskForm" action="{% url 'delete' %}" method="post">
+    <input type="hidden" id="deleteTaskInput" name="deleteTask" value="">
+    {% csrf_token %}
+  </form>
+</div>
+<script>
+  //<!-- JavaScript to handle the delete button clicks -->
+
+  // Get all delete buttons by class name
+  const deleteButtons = document.querySelectorAll('.delete-button');
+
+  // Add a click event listener to each delete button
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const taskToDelete = button.getAttribute('data-task');
+
+      // Set the deleteTask input field to the task name
+      const deleteTaskInput = document.getElementById('deleteTaskInput');
+      deleteTaskInput.value = taskToDelete;
+
+      // Submit the delete task form
+      const deleteTaskForm = document.getElementById('deleteTaskForm');
+      deleteTaskForm.submit();
+    });
+  });
+  // Get all Done buttons by class name
+  const doneButtons = document.querySelectorAll('.Done-button');
+
+  // Add a click event listener to each Done button
+  doneButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Get the parent element of the button (the table cell)
+      const parentElement = button.parentElement;
+
+      // Get the previous sibling of the parent (the task cell)
+      const taskCell = parentElement.previousElementSibling;
+
+      // Check if the task is already done
+      if (taskCell.style.color === 'red') {
+        // If the task is done, undo it
+        taskCell.style.color = '';
+        taskCell.style.textDecoration = '';
+        button.innerText = "Done";
+      } else {
+        // If the task is not done, do it
+        taskCell.style.color = 'red';
+        taskCell.style.textDecoration = 'line-through';
+        button.innerText = "Undone";
+      }
+    });
+  });
+
+</script>
+{% endblock %}
