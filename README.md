@@ -1,12 +1,8 @@
-```markdown
 # Django To-Do List Application
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-![Alt text](image-3.png)
-![Alt text](image-4.png)
-![Alt text](image-5.png)
+![To-Do List Screenshot](screenshot.png)
+
 ## Description
-This is a simple To-Do List application built with Django and SQLite. It allows users to add, view, and delete tasks.
+This is a stylish and interactive To-Do List application built with Django, SQLite, HTML, JavaScript, and Bootstrap. It allows users to add, view, and delete tasks with ease.
 
 ## Features
 - Add new tasks
@@ -17,18 +13,21 @@ This is a simple To-Do List application built with Django and SQLite. It allows 
 1. Clone this repository: `git clone <repository-url>`
 2. Navigate to the project directory: `cd <project-directory>`
 3. Install the required packages: `pip install -r requirements.txt`
-4. Run the server: `python manage.py runserver`
+4. Apply database migrations: `python manage.py migrate`
+5. Create a superuser to manage tasks: `python manage.py createsuperuser`
+6. Run the server: `python manage.py runserver`
 
 ## Usage
-- To add a task, navigate to the 'Add Task' page, enter your task in the input field, and click 'Add'.
-- To view all tasks, navigate to the 'Tasks' page.
-- To delete a task, click the 'Delete' button next to the task you want to delete on the 'Tasks' page.
+- Access the application by navigating to `http://localhost:8000` in your web browser.
+- To add a task, click the "Add Task" button, enter your task in the input field, and press "Add."
+- To view all tasks, click the "Tasks" button in the navigation bar.
+- To delete a task, click the "Delete" button next to the task on the "Tasks" page.
+
+## Customization
+You can customize the application further by modifying the HTML templates and CSS styles as needed in the project's `templates` and `static` directories.
 
 ## Contributing
-Pull requests are welcome. For major changes
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
-```
-
-Please replace `<repository-url>` and `<project-directory>` with your actual repository URL and project directory name. Also, you might need to adjust the installation and usage instructions based on your actual application setup and functionality.
+This project is open-source and available under the [MIT License](https://choosealicense.com/licenses/mit/).
