@@ -30,7 +30,7 @@ This is a stylish and interactive To-Do List application built with Django, SQLi
 You can customize the application further by modifying the HTML templates and CSS styles as needed in the project's `templates` and `static` directories.
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes
 
 ## License
 This project is open-source and available under the [MIT License](https://choosealicense.com/licenses/mit/).
